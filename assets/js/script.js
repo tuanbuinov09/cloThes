@@ -41,6 +41,7 @@ const navOpen = document.getElementsByClassName("submenu-container")[0];
 var submenuIsNotOpen = true;
 navOpen.addEventListener("click", function () {
     if (submenuIsNotOpen) {
+        console.log(1)
         $('.header__nav-list .nav__item:not(:first-child)').css({
             transform: "translateY(calc(52*5px))"
         });
@@ -78,7 +79,7 @@ $('.mobile-menu-button').click(function () {
         searchWrapper.style.backgroundColor = "#33333380";
         searchWrapper.style.width = "100%";
         return;
-    } else {
+    }else{
         $(".header__nav-list").css({
             left: "-100%"
         });
@@ -89,40 +90,5 @@ $('.mobile-menu-button').click(function () {
         searchWrapper.style.backgroundColor = null;
         const s = setTimeout(function () { searchWrapper.style.width = "0"; }, 300);
     }
-
+    
 });
-
-var menuItems = document.querySelectorAll(".header__nav-list li");
-
-console.log(menuItems);
-for (var i = 0; i < menuItems.length; i++) {
-    var menuItem = menuItems[i];
-    menuItem.onclick = function () {
-        var mobilebutton = $('.mobile-menu-button').css('display') == "none";
-        console.log("a" + mobilebutton);
-        var isParentMenu = mobilebutton == false && this.classList.contains("submenu-container");
-        console.log(isParentMenu);
-        if (isParentMenu) {
-            $(".header__nav-list").css({
-                left: "0%"
-            });
-            // $(".main").css({
-            //     marginLeft: "0px"
-            // });
-            // mobileMenuisHidden = true;
-            event.preventDefault();
-        } else {
-            console.log(11);
-            $(".mobile-menu-button").toggleClass("active");
-            $(".header__nav-list").css({
-                left: "-100%"
-            });
-            // $(".main").css({
-            //     marginLeft: "0px"
-            // });
-            mobileMenuisHidden = true;
-            searchWrapper.style.backgroundColor = null;
-            const s = setTimeout(function () { searchWrapper.style.width = "0"; }, 300);
-        }
-    }
-}
