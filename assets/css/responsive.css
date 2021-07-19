@@ -40,7 +40,7 @@
     .header__nav-list{
         /* padding-top: 60px; */
         display: block;
-        width: 100%;
+        width: 500px;
         position: fixed;
         top: 60px;
         left: 0;
@@ -60,11 +60,11 @@
         transform: rotate(0deg);
     }
     .nav__item:hover i {
-        transform: rotate(-90deg);
+        transform: rotate(0deg);
     }
 
     .header ul .submenu{
-        /* display: none; */
+        display: block;
         width: 100%;
         position: absolute;
         visibility: visible;
@@ -87,6 +87,9 @@
 @media (max-width: 740px){
     .item{
         width: 50%;
+    }
+    .header__nav-list{
+        width: 100%;
     }
     .cover{
         /* flex-direction: column; */

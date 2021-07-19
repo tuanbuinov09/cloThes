@@ -147,7 +147,6 @@ ul{
 .submenu a{
     padding: 0 44px 0 16px;
     line-height: 52px;
-
 }
 .submenu li:hover{
     background-color: #333333; 
@@ -206,7 +205,7 @@ ul{
     background-color: var(--white);
     padding: 40px 40px;
     position: fixed;
-    right: -400px;
+    right: -100%;
     top: 60px;
     transition: right 0.3s ease-out;
 }
