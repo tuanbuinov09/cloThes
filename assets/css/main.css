@@ -131,6 +131,7 @@ ul{
 .submenu-container{
     position: relative;
 }
+
 .submenu{
     display: none;
     position: absolute;
@@ -196,6 +197,7 @@ ul{
     transition: background-color 0.3s ease-out;
     /* display: none; */
     overflow: hidden;
+    z-index: 2;
 }
 
 .search-box
@@ -206,8 +208,12 @@ ul{
     padding: 40px 40px;
     position: fixed;
     right: -100%;
-    top: 60px;
+    top: 0px;
     transition: right 0.3s ease-out;
+    z-index: 3;
+}
+.side-bar-show{
+    
 }
 .search-box i
 , .bag-box i{

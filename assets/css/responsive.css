@@ -56,11 +56,10 @@
     .submenu li{
         padding-left: 36px;
     }
-    .nav__item i {
-        transform: rotate(0deg);
-    }
+
     .nav__item:hover i {
-        transform: rotate(0deg);
+        transform: rotate(0);
+        pointer-events: none;
     }
 
     .header ul .submenu{
@@ -82,6 +81,18 @@
     }
     .sale-off{
         padding-left: 0;
+    }
+    .translateX-0{
+        transform: translateX(0) !important;
+    }
+    .translateY-calc-52x5px{
+        transform: translateY(calc(52*5px));
+    }
+    .rotate--90deg{
+        transform: rotate(-90deg) !important;
+    }
+    .side-bar-container{
+        z-index: 0;
     }
 }
 @media (max-width: 740px){
