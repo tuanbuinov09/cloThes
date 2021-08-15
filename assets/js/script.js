@@ -140,6 +140,7 @@ function fncaddToCart(e) {
         <a href="#" class="btn--danger">Remove</a>
     </div>`;
     document.querySelector(".cart-list").append(div);
+    addPlusMinusEvent();
     updateBagCount();
 }
 
