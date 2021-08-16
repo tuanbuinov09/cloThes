@@ -173,17 +173,16 @@ ul{
 }
 .fa-shopping-bag{
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
 }
 .bag__count{
-    font-size: 1.6rem;
+    display: block;
+    width: 24px;
+    font-size: 1.4rem;
     position: absolute;
     color: var(--dark);
-    left: 33%;
+    text-align: center;
     bottom: -4px;
-    /* transform: translateX(-50%); */
 }
 .side-bar-container{
     position: fixed;
@@ -250,7 +249,7 @@ ul{
     max-height: 120px;
 }
 .cart-list .cart-list__item .item__img-container{
-    max-width: 37.5%;
+    max-width: 120px;
 }
 .item__detail{
     margin-left: 16px;

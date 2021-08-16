@@ -123,6 +123,16 @@ function fncaddToCart(e) {
     console.log(parent);
     var src = parent.querySelector(".item__img-container img").src;
     var productName = parent.querySelector(".item__label").textContent;
+    var productNames = document.querySelector(".cart-list").querySelectorAll(".item__label");
+    console.log(productNames);
+    for(var i=0; i<productNames.length;i++){
+        if(productName === productNames[i].textContent){
+            var item = productNames[i].parentNode;
+            item.querySelector(".quantity-field").value = parseInt(item.querySelector(".quantity-field").value) +1;
+            updateBagCount();
+            return;
+        }
+    }
     var price = parent.querySelector(".item__price").textContent;
     var div = document.createElement("div");
     div.classList.add("cart-list__item");
@@ -139,8 +149,18 @@ function fncaddToCart(e) {
         </div>
         <a href="#" class="btn--danger">Remove</a>
     </div>`;
+    div.querySelector(".button-plus").addEventListener("click", function (e) {
+        incrementValue(e);
+    })
+    div.querySelector(".button-minus").addEventListener("click", function (e) {
+        decrementValue(e);
+    })
+    div.querySelector(".quantity-field").addEventListener("focusout", function (e) {
+        updateBagCount();
+    })
     document.querySelector(".cart-list").append(div);
-    addPlusMinusEvent();
+    // addPlusMinusEvent();
+
     updateBagCount();
 }
 
@@ -170,6 +190,7 @@ function incrementValue(e) {
     e.preventDefault();
     var plusButton = e.target;
     var quantity = plusButton.parentNode.querySelector(".quantity-field");
+    console.log(plusButton.parentNode)
     var currentVal = parseInt(quantity.value);
     if (!isNaN(currentVal)) {
         quantity.value = currentVal + 1;
@@ -191,21 +212,21 @@ function decrementValue(e) {
     }
     updateBagCount();
 }
-function addPlusMinusEvent() {
-    var plusButtons = document.querySelectorAll(".input-group .button-plus");
-    for (var i = 0; i < plusButtons.length; i++) {
-        plusButtons[i].addEventListener("click", function (e) {
-            incrementValue(e);
-        })
-    }
-    var minusButtons = document.querySelectorAll(".input-group .button-minus");
-    for (var i = 0; i < minusButtons.length; i++) {
-        minusButtons[i].addEventListener("click", function (e) {
-            decrementValue(e);
-        })
-    }
-}
-addPlusMinusEvent();
+// function addPlusMinusEvent() {
+//     var plusButtons = document.querySelectorAll(".input-group .button-plus");
+//     for (var i = 0; i < plusButtons.length; i++) {
+//         plusButtons[i].addEventListener("click", function (e) {
+//             incrementValue(e);
+//         })
+//     }
+//     var minusButtons = document.querySelectorAll(".input-group .button-minus");
+//     for (var i = 0; i < minusButtons.length; i++) {
+//         minusButtons[i].addEventListener("click", function (e) {
+//             decrementValue(e);
+//         })
+//     }
+// }
+// addPlusMinusEvent();
 
 
 // function incrementValue(e) {
