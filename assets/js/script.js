@@ -116,6 +116,16 @@ for (var i = 0; i < items.length - 2; i++) {
     item.append(addToCart);
 }
 
+
+function removeFromCart(e){
+    e.preventDefault();
+    var addButton = e.target;
+    var parent = addButton.parentNode.parentNode;
+    parent.remove();
+    updateBagCount();
+}
+
+
 function fncaddToCart(e) {
     e.preventDefault();
     var addButton = e.target;
@@ -155,9 +165,13 @@ function fncaddToCart(e) {
     div.querySelector(".button-minus").addEventListener("click", function (e) {
         decrementValue(e);
     })
+    div.querySelector(".btn--danger").addEventListener("click", function (e) {
+        removeFromCart(e);
+    })
     div.querySelector(".quantity-field").addEventListener("focusout", function (e) {
         updateBagCount();
     })
+    
     document.querySelector(".cart-list").append(div);
     // addPlusMinusEvent();
 
